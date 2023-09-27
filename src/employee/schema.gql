@@ -1,0 +1,48 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type EmployeeSchema {
+  id: Int!
+  empName: String!
+  empAddress: String!
+  empTel: String!
+  empSalary: Int!
+  empPhoto: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  findAll: [EmployeeSchema!]!
+  find(id: Int!): EmployeeSchema!
+}
+
+type Mutation {
+  create(file: Upload!, createEmployeeDto: CreateEmployeeDto!): EmployeeSchema!
+  update(file: Upload, updateEmployeeDto: UpdateEmployeeDto!): EmployeeSchema!
+  delete(id: Int!): Boolean!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+input CreateEmployeeDto {
+  empName: String!
+  empAddress: String!
+  empTel: String!
+  empSalary: Int!
+}
+
+input UpdateEmployeeDto {
+  id: Int!
+  empName: String!
+  empAddress: String!
+  empTel: String!
+  empSalary: Int!
+}
